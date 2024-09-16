@@ -484,6 +484,10 @@ template {
 }
 .item-cards {
 }
+.item-cards-pagination-style {
+  display: flex;
+  justify-content: flex-end;
+}
 .item-cards_pagination {
   display: flex;
   justify-content: end;

@@ -22,10 +22,20 @@
               <img src="../assets/frame_1.SVG" alt="логотип сайта" />
             </div>
             <nav class="header_nav">
-              <div class="header_nav_item">Главная</div>
-              <div class="header_nav_item">О компании</div>
-              <div class="header_nav_item">Каталог</div>
+              <div class="header_nav_item">
+                {{ HeaderItem1 }}
+              </div>
+              <div class="header_nav_item">
+                {{ aboutCompany }}
+              </div>
+              <div class="header_nav_item" *ngIf="isShowCatalog">
+                {{ HeaderItem3 }}
+              </div>
             </nav>
+            <button (click)="isShowCatalog = !isShowCatalog">
+              скрыть\показать
+            </button>
+            <button (click)="changeMenuText()">изменить текст</button>
           </div>
           <div class="header_right">
             <div class="logo-phone">
@@ -57,13 +67,11 @@
                   src="../assets/light.svg"
                   alt="логотип каталога"
                 />
-                <div>Каталог</div>
               </div>
               <nav class="header_nav_2">
-                <div class="header_nav_item2">Стройматериалы</div>
-                <div class="header_nav_item2">Инструменты</div>
-                <div class="header_nav_item2">Электрика</div>
-                <div class="header_nav_item2">Интерьер и одежда</div>
+                <div *ngFor="let item of menuItems" class="header_nav_item2">
+                  {{ item }}
+                </div>
               </nav>
             </div>
             <div class="header_2_right">
@@ -88,9 +96,15 @@
         </div>
       </div>
     </div>
+    <router-outlet></router-outlet>
     <!-- конец шапки -->
     <div>
-      <img src="../assets/баннер.png" alt="background-large" />
+      <button (click)="ImageBody = !ImageBody">скрыть\показать мужика</button>
+      <img
+        *ngIf="ImageBody"
+        src="../assets/баннер.png"
+        alt="background-large"
+      />
     </div>
     <!-- баннер грустного мужика -->
     <!--  КОНТЕЙНЕР-->
@@ -137,12 +151,12 @@
       </div>
       <!-- Конец инфо карты -->
       <div class="item-cards">
-        <div class="item-cards_pagination">
-          <button class="item-cards_pagination-button active-button">1</button>
-          <button class="item-cards_pagination-button">2</button>
-          <button class="item-cards_pagination-button">3</button>
-          <button class="item-cards_pagination-button">4</button>
-          <button class="item-cards_pagination-button">5</button>
+        <div class="item-cards-pagination-style">
+          <div *ngFor="let item of newPages" class="item-cards_pagination">
+            <button class="item-cards_pagination-button active-button">
+              {{ item }}
+            </button>
+          </div>
         </div>
         <div class="item-card_grid">
           <div class="item-cards_grid-left">
