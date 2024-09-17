@@ -378,14 +378,19 @@ template {
   display: flex;
 }
 .header_nav_item {
+  color: white;
   margin-right: 20px;
+  text-decoration: none;
 }
 .header_right {
   display: flex;
   align-items: center;
+  color: white;
 }
 .number-phone {
+  color: white;
   margin-right: 20px;
+  text-decoration: none;
 }
 .logo-phone {
   margin-right: 20px;
@@ -854,6 +859,7 @@ template {
   font-weight: 500;
   line-height: 19.36px;
   text-align: left;
+  text-decoration: none;
 }
 .footer_left-block_text {
   display: flex;

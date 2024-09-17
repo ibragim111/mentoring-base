@@ -22,15 +22,15 @@
               <img src="../assets/frame_1.SVG" alt="логотип сайта" />
             </div>
             <nav class="header_nav">
-              <div class="header_nav_item">
+              <a href="url" class="header_nav_item">
                 {{ HeaderItem1 }}
-              </div>
-              <div class="header_nav_item">
+              </a>
+              <a href="url" class="header_nav_item">
                 {{ aboutCompany }}
-              </div>
-              <div class="header_nav_item" *ngIf="isShowCatalog">
+              </a>
+              <a href="url" class="header_nav_item" *ngIf="isShowCatalog">
                 {{ HeaderItem3 }}
-              </div>
+              </a>
             </nav>
             <button (click)="isShowCatalog = !isShowCatalog">
               скрыть\показать
@@ -41,7 +41,9 @@
             <div class="logo-phone">
               <img src="../assets/Phone.svg" alt="логотип телефона" />
             </div>
-            <div class="number-phone">+7 (965) 084-29-29</div>
+            <a href="tel: +7 (965) 084-29-29" class="number-phone"
+              >+7 (965) 084-29-29</a
+            >
             <div class="logo-heart">
               <img src="../assets/heart 1.svg" alt="логотип сердца" />
             </div>
@@ -740,10 +742,12 @@
                     <span>Контактный телефон</span>
                   </div>
                   <div class="footer_left-block_text">
-                    <span class="text_color_footer"
-                      >+ 7 (812) 309-09-34 верх</span
-                    ><span class="text_color_footer"
-                      >+ 7 (965) 084-29-09 низ</span
+                    <a href="tel:+ 7 (812) 309-09-34" class="text_color_footer"
+                      >+ 7 (812) 309-09-34 верх</a
+                    ><a
+                      href="tel:+ 7 (965) 084-29-09 "
+                      class="text_color_footer"
+                      >+ 7 (965) 084-29-09 низ</a
                     >
                   </div>
                 </div>
@@ -753,8 +757,11 @@
                     <span>Электронная почта</span>
                   </div>
                   <div class="footer_left-block_text">
-                    <span class="text_color_footer">tustin78&#64;mail.ru</span
-                    ><span class="text_color_footer">info&#64;tustin.ru</span>
+                    <a href="mailto:tustin78@mail.ru " class="text_color_footer"
+                      >tustin78&#64;mail.ru</a
+                    ><a href="mailto:info@tustin.ru " class="text_color_footer"
+                      >info&#64;tustin.ru</a
+                    >
                   </div>
                 </div>
               </div>
