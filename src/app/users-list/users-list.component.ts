@@ -12,14 +12,21 @@ import { Component, inject, Injectable } from '@angular/core';
 })
 export class UsersListComponent {
   readonly apiService = inject(HttpClient);
-  users = [];
+  users: any = [];
 
   constructor() {
     this.apiService
-      .get('https://jsonplaceholder.typicode.com/users')
+      .get<any>('https://jsonplaceholder.typicode.com/users')
       .subscribe((response: any) => {
         this.users = response;
         console.log('USERS:', this.users);
       });
+  }
+
+  deleteUser(id: number) {
+    this.users = this.users.filter(
+      //  @ts-ignore
+      (item) => item.id !== id
+    );
   }
 }

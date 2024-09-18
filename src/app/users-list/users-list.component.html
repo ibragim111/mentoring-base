@@ -1,6 +1,29 @@
 <h1>Юзер лист пашет</h1>
-{{ users[0] }}
-
-<div>
-  <div *ngFor="let item of users">{{ item }}</div>
+<div
+  style="
+    width: 1320px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid black;
+    gap: 22px;
+  "
+>
+  <div
+    style="
+      width: 200px;
+      height: 200px;
+      box-shadow: 5px;
+      border: 1px solid black;
+      padding: 10px;
+    "
+    *ngFor="let item of users"
+  >
+    <p>{{ $any(item).name }}</p>
+    <p>{{ $any(item).username }}</p>
+    <p>{{ $any(item).id }}</p>
+    <p>{{ $any(item).email }}</p>
+    <p>{{ $any(item).city }}</p>
+    <button (click)="deleteUser(item.id)">Delete User</button>
+  </div>
 </div>
