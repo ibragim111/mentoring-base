@@ -1,9 +1,10 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [NgFor, NgIf],
+  imports: [NgFor, NgIf, RouterLink],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
@@ -22,17 +23,14 @@ export class HeaderComponent {
     'Электрика',
     'Интерьер и одежда',
   ];
-  public upperCaseMenuItems: string[] = this.menuItems.map((item) => {
-    return item.toUpperCase();
-  });
-  showMenuItems = this.upperCaseMenuItems;
+  upperCaseMenuItems = this.menuItems;
 
   constructor() {
     console.log(this.aboutCompany);
   }
 
   changeMenuText() {
-    this.showMenuItems = this.upperCaseMenuItems.map((item: string) =>
+    this.menuItems = this.upperCaseMenuItems.map((item: string) =>
       this.isUpperCase ? item.toLowerCase() : item.toUpperCase()
     );
     this.isUpperCase = !this.isUpperCase;

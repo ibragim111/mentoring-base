@@ -1,5 +1,7 @@
 <div>
-  <button (click)="ImageBody = !ImageBody">скрыть\показать мужика</button>
+  <button class="button_show_image" (click)="ImageBody = !ImageBody">
+    скрыть\показать мужика
+  </button>
   <img *ngIf="ImageBody" src="../assets/баннер.png" alt="background-large" />
 </div>
 <!-- баннер грустного мужика -->

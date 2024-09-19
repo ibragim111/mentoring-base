@@ -1,29 +1,16 @@
-<h1>Юзер лист пашет</h1>
-<div
-  style="
-    width: 1320px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    border: 1px solid black;
-    gap: 22px;
-  "
->
-  <div
-    style="
-      width: 200px;
-      height: 200px;
-      box-shadow: 5px;
-      border: 1px solid black;
-      padding: 10px;
-    "
-    *ngFor="let item of users"
-  >
+<div class="title_users_list">
+  <h1>Список пользователей</h1>
+</div>
+<div class="container_first">
+  <div class="user_list_block" *ngFor="let item of users">
     <p>{{ $any(item).name }}</p>
     <p>{{ $any(item).username }}</p>
-    <p>{{ $any(item).id }}</p>
     <p>{{ $any(item).email }}</p>
-    <p>{{ $any(item).city }}</p>
-    <button (click)="deleteUser(item.id)">Delete User</button>
+    <p>{{ $any(item).address.city }}</p>
+    <div class="button_click">
+      <button class="click_class" (click)="deleteUser(item.id)">
+        Удалить пользователя
+      </button>
+    </div>
   </div>
 </div>
