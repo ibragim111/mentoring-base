@@ -1,6 +1,7 @@
 import { NgFor } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, Injectable } from '@angular/core';
+import { UserApiService } from '../users-api.service';
 
 export interface User {
   id: number;
@@ -11,6 +12,7 @@ export interface User {
     city: string;
   };
 }
+
 @Injectable()
 @Component({
   selector: 'app-users-list',
@@ -20,22 +22,22 @@ export interface User {
   imports: [NgFor],
 })
 export class UsersListComponent {
-  readonly apiService = inject(HttpClient);
+  readonly usersApiService = inject(UserApiService);
   users: User[] = [];
 
   constructor() {
-    this.apiService
-      .get<User[]>('https://jsonplaceholder.typicode.com/users')
-      .subscribe((response) => {
-        this.users = response;
-        console.log('USERS:', this.users);
-      });
+    this.usersApiService.getUsers().subscribe((response: any) => {
+      this.users = response;
+      console.log('USERS: ', this.users);
+    });
   }
-
   deleteUser(id: number) {
-    this.users = this.users.filter(
-      //  @ts-ignore
-      (item) => item.id !== id
-    );
+    this.users = this.users.filter((item) => {
+      if (id === item.id) {
+        return false;
+      } else {
+        return true;
+      }
+    });
   }
 }
