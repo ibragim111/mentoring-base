@@ -2,7 +2,11 @@
   <button class="button_show_image" (click)="ImageBody = !ImageBody">
     скрыть\показать мужика
   </button>
-  <img *ngIf="ImageBody" src="../assets/баннер.png" alt="background-large" />
+  <img
+    *ngIf="ImageBody"
+    src="../assets/main-picture.png"
+    alt="главная картинка"
+  />
 </div>
 <!-- баннер грустного мужика -->
 
@@ -10,7 +14,11 @@
   <!-- ИНФО КАРТА -->
   <div class="info">
     <div class="info-card">
-      <img class="icon-info" src="../assets/logo kirpich.svg" alt="" />
+      <img
+        class="icon-info"
+        src="../assets/logo-wall.svg"
+        alt="логотип стены"
+      />
       <span class="info-card-text"
         >Большой ассортимент
         <span style="color: rgba(161, 160, 160, 1)"
@@ -19,7 +27,11 @@
       </span>
     </div>
     <div class="info-card">
-      <img class="icon-info icon-center" src="../assets/mashinka.svg" alt="" />
+      <img
+        class="icon-info icon-center"
+        src="../assets/logo-car.svg"
+        alt="логотип машины"
+      />
       <span class="info-card-text">
         Доставка стройматериалов
         <span style="color: rgba(161, 160, 160, 1)">
@@ -31,8 +43,8 @@
       <img
         class="icon-info"
         class="icon-info"
-        src="../assets/palets.svg"
-        alt=""
+        src="../assets/logo-like.svg"
+        alt="логотип лайка"
       />
       <span class="info-card-text">
         <span style="color: rgba(161, 160, 160, 1)">Многоуровневая</span>
@@ -58,7 +70,7 @@
         <div class="tem-cards_grid-left-action">
           <p class="item-cards_grid-left-action_text">Перейти в каталог</p>
           <a class="tem-cards_grid-left-action-link" href="">
-            <img src="../assets/strelka.svg" alt="лого каталог" />
+            <img src="../assets/arrow.svg" alt="лого каталог" />
           </a>
         </div>
       </div>
@@ -69,7 +81,7 @@
           <div class="item-cards_grid-right-action action-right-1">
             <p class="item-cards_grid-right-action_text">Перейти в каталог</p>
             <a href="">
-              <img src="../assets/strelka.svg" alt="лого эмали" />
+              <img src="../assets/arrow.svg" alt="лого эмали" />
             </a>
           </div>
         </div>
@@ -80,7 +92,7 @@
           <div class="item-cards_grid-right-action action-right-2">
             <p class="item-cards_grid-right-action_text">Перейти в каталог</p>
             <a href="">
-              <img src="../assets/strelka.svg" alt="лого красочный материал" />
+              <img src="../assets/arrow.svg" alt="лого красочный материал" />
             </a>
           </div>
         </div>
@@ -91,7 +103,7 @@
           <div class="item-cards_grid-right-action action-right-3">
             <p class="item-cards_grid-right-action_text">Перейти в каталог</p>
             <a href="">
-              <img src="../assets/strelka.svg" alt="лого пены" />
+              <img src="../assets/arrow.svg" alt="лого пены" />
             </a>
           </div>
         </div>
@@ -102,7 +114,7 @@
           <div class="item-cards_grid-right-action action-right-4">
             <p class="item-cards_grid-right-action_text">Перейти в каталог</p>
             <a href="">
-              <img src="../assets/strelka.svg" alt="лого розетки" />
+              <img src="../assets/arrow.svg" alt="лого розетки" />
             </a>
           </div>
         </div>
@@ -119,7 +131,7 @@
   <div class="item-cards-block">
     <div class="item-card-arrow-_left">
       <button class="arrow-right_left">
-        <img src="../assets/strelka levo2 1.svg" alt="лого левая стрелка" />
+        <img src="../assets/arrow-left.svg" alt="лого левая стрелка" />
       </button>
     </div>
 
@@ -127,8 +139,8 @@
     <div class="item_cards-product">
       <div class="item-cards-container-top">
         <div class="item-cards-image_number">
-          <img src="../assets/procenty.svg" alt="лого процент" />
-          <img src="../assets/black heart.svg" alt="лого сердце" />
+          <img src="../assets/logo-percent.svg" alt="лого процент" />
+          <img src="../assets/black-heart.svg" alt="лого сердце" />
         </div>
       </div>
       <div class="item-cards-container-bottom">
@@ -176,8 +188,8 @@
     <div class="item_cards-product">
       <div class="item-cards-container-top">
         <div class="item-cards-image_number">
-          <img src="../assets/procenty.svg" alt="лого процент" />
-          <img src="../assets/black heart.svg" alt="лого сердце" />
+          <img src="../assets/logo-percent.svg" alt="лого процент" />
+          <img src="../assets/black-heart.svg" alt="лого сердце" />
         </div>
       </div>
       <div class="item-cards-container-bottom">
@@ -228,16 +240,16 @@
           <div style="width: 109px; height: 90px">
             <img
               style="position: relative; right: -5px; bottom: -11px"
-              src="../assets/Новинки.svg"
+              src="../assets/logo-new.svg"
               alt="лого процент"
             />
             <img
               style="position: relative; top: 18px; right: -5px"
-              src="../assets/procenty.svg"
+              src="../assets/logo-percent.svg"
               alt="лого проценты"
             />
           </div>
-          <img src="../assets/black heart.svg" alt="лого сердце" />
+          <img src="../assets/black-heart.svg" alt="лого сердце" />
         </div>
       </div>
       <div class="item-cards-container-bottom">
@@ -287,10 +299,10 @@
         <div style="margin-left: 8px" class="item-cards-image_number">
           <img
             style="position: relative; right: 2px; bottom: 3px"
-            src="../assets/Новинки.svg"
+            src="../assets/logo-new.svg"
             alt="лого процент"
           />
-          <img src="../assets/black heart.svg" alt="лого сердце" />
+          <img src="../assets/black-heart.svg" alt="лого сердце" />
         </div>
       </div>
       <div class="item-cards-container-bottom">
@@ -335,7 +347,7 @@
     </div>
     <div class="item-card-arrow-right">
       <button class="arrow-right_left">
-        <img src="../assets/strelka pravo.svg" alt="лого правая стрелка" />
+        <img src="../assets/arrow-right.svg" alt="лого правая стрелка" />
       </button>
     </div>
   </div>
@@ -363,7 +375,7 @@
   <div class="item-cards-block">
     <div class="item-card-arrow-_left">
       <button class="arrow-right_left">
-        <img src="../assets/strelka levo2 1.svg" alt="лого левая стрелка" />
+        <img src="../assets/arrow-left.svg" alt="лого левая стрелка" />
       </button>
     </div>
 
@@ -373,10 +385,10 @@
         <div class="item-cards-image_number">
           <img
             style="position: relative; right: 22px"
-            src="../assets/Новинки.svg"
+            src="../assets/logo-new.svg"
             alt="лого процент"
           />
-          <img src="../assets/black heart.svg" alt="лого сердце" />
+          <img src="../assets/black-heart.svg" alt="лого сердце" />
         </div>
       </div>
       <div class="item-cards-container-bottom">
@@ -425,10 +437,10 @@
         <div class="item-cards-image_number">
           <img
             style="position: relative; right: 22px"
-            src="../assets/Новинки.svg"
+            src="../assets/logo-new.svg"
             alt="лого процент"
           />
-          <img src="../assets/black heart.svg" alt="лого сердце" />
+          <img src="../assets/black-heart.svg" alt="лого сердце" />
         </div>
       </div>
       <div class="item-cards-container-bottom">
@@ -478,11 +490,11 @@
           <div style="width: 109px; height: 90px">
             <img
               style="position: relative; right: 5px; top: 20px"
-              src="../assets/Новинки.svg"
+              src="../assets/logo-new.svg"
               alt="лого процент"
             />
           </div>
-          <img src="../assets/black heart.svg" alt="лого сердце" />
+          <img src="../assets/black-heart.svg" alt="лого сердце" />
         </div>
       </div>
       <div class="item-cards-container-bottom">
@@ -531,10 +543,10 @@
         <div style="margin-left: 8px" class="item-cards-image_number">
           <img
             style="position: relative; right: 6px"
-            src="../assets/Новинки.svg"
+            src="../assets/logo-new.svg"
             alt="лого процент"
           />
-          <img src="../assets/black heart.svg" alt="лого сердце" />
+          <img src="../assets/black-heart.svg" alt="лого сердце" />
         </div>
       </div>
       <div class="item-cards-container-bottom">
@@ -579,7 +591,7 @@
     </div>
     <div class="item-card-arrow-right">
       <button class="arrow-right_left">
-        <img src="../assets/strelka pravo.svg" alt="лого правая стрелка" />
+        <img src="../assets/arrow-right.svg" alt="лого правая стрелка" />
       </button>
     </div>
   </div>
