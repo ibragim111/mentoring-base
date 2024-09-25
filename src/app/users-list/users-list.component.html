@@ -3,14 +3,9 @@
 </div>
 <div class="container_first">
   <div class="user_list_block" *ngFor="let item of users">
-    <p>{{ item.name }}</p>
-    <p>{{ item.username }}</p>
-    <p>{{ item.email }}</p>
-    <p>{{ item.address.city }}</p>
-    <div class="button_click">
-      <button class="click_class" (click)="deleteUser(item.id)">
-        Удалить пользователя
-      </button>
-    </div>
+    <app-user-card
+      [user]="item"
+      (deleteUser)="deleteUser($event)"
+    ></app-user-card>
   </div>
 </div>
