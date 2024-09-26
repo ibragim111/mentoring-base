@@ -11,6 +11,7 @@ import { Todo } from '../todos-list.component';
 export class TodoCardComponent {
   @Input({ required: true })
   todo!: Todo;
+
   @Output()
   deleteTodo = new EventEmitter();
 

@@ -23,6 +23,7 @@ export class HeaderComponent {
     'Электрика',
     'Интерьер и одежда',
   ];
+
   upperCaseMenuItems = this.menuItems;
 
   constructor() {

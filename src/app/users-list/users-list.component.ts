@@ -14,7 +14,6 @@ export interface User {
   };
 }
 
-@Injectable()
 @Component({
   selector: 'app-users-list',
   templateUrl: './users-list.component.html',
@@ -32,6 +31,7 @@ export class UsersListComponent {
       console.log('USERS: ', this.users);
     });
   }
+
   deleteUser(id: number) {
     this.users = this.users.filter((item) => {
       if (id === item.id) {

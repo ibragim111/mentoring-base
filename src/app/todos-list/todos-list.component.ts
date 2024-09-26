@@ -9,7 +9,7 @@ export interface Todo {
   userId: number;
   completed: boolean;
 }
-@Injectable()
+
 @Component({
   selector: 'app-todos-list',
   standalone: true,
@@ -17,15 +17,19 @@ export interface Todo {
   templateUrl: './todos-list.component.html',
   styleUrl: './todos-list.component.scss',
 })
+@Injectable()
 export class TodosListComponent {
   readonly todosApiService = inject(TodosApiService);
+
   todos: Todo[] = [];
+
   constructor() {
     this.todosApiService.getTodos().subscribe((response: any) => {
       this.todos = response;
       console.log('TODOS:', this.todos);
     });
   }
+
   deleteTodo(id: number): void {
     this.todos = this.todos.filter((todo) => {
       if (id === todo.id) {
