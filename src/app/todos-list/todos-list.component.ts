@@ -17,7 +17,6 @@ export interface Todo {
   templateUrl: './todos-list.component.html',
   styleUrl: './todos-list.component.scss',
 })
-@Injectable()
 export class TodosListComponent {
   readonly todosApiService = inject(TodosApiService);
 
