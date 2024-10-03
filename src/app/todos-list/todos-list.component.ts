@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  inject,
-  Injectable,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { TodoCardComponent } from './todo-card/todo-card.component';
 import { TodosApiService } from '../todos-api.service';
 import { AsyncPipe, NgFor } from '@angular/common';
@@ -27,15 +22,15 @@ export interface Todo {
 export class TodosListComponent {
   readonly todosApiService = inject(TodosApiService);
   readonly todosService = inject(TodosService);
+  public readonly todosList$ = this.todosService.todosList$;
 
   constructor() {
     this.todosApiService.getTodos().subscribe((response: any) => {
       this.todosService.setTodos(response);
-      // console.log('TODOS:', this.todos);
     });
   }
 
   deleteTodo(id: number): void {
-    this.todosService.deleteTodos(id);
+    this.todosService.deleteTodo(id);
   }
 }

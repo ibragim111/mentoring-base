@@ -1,12 +1,7 @@
-<div class="title_users_list">
-  <h1>Список пользователей</h1>
-</div>
-
+<div class="title_users_list"></div>
+<app-create-user-form></app-create-user-form>
 <div class="container_first">
-  <div
-    class="user_list_block"
-    *ngFor="let user of usersService.usersSubject$ | async"
-  >
+  <div class="user_list_block" *ngFor="let user of usersList$ | async">
     <app-user-card
       [user]="user"
       (deleteUser)="deleteUser($event)"
