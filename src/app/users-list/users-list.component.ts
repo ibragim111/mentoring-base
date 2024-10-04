@@ -8,9 +8,9 @@ import { CreateUserFormComponent } from '../create-user-form/create-user-form.co
 export interface User {
   id: number;
   name: string;
-  username: string;
+  username?: string;
   email: string;
-  address: {
+  address?: {
     street: string;
     suite: string;
     city: string;
@@ -20,12 +20,12 @@ export interface User {
       lng: number;
     };
   };
-  phone: number;
+  phone?: number;
   website: string;
   company: {
     name: string;
-    catchPhrase: string;
-    bs: string;
+    catchPhrase?: string;
+    bs?: string;
   };
 }
 
@@ -45,11 +45,25 @@ export class UsersListComponent {
   constructor() {
     this.usersApiService.getUsers().subscribe((response: any) => {
       this.usersService.setUsers(response);
-      // console.log('USERS: ', this.usersService.users);
     });
+
+    this.usersService.usersList$.subscribe((users) => console.log(users));
   }
 
   deleteUser(id: number) {
     this.usersService.deleteUser(id);
+  }
+
+  public createUser(formData: any) {
+    this.usersService.createUser({
+      id: new Date().getTime(),
+      name: formData.name,
+      email: formData.email,
+      website: formData.website,
+      company: {
+        name: formData.companyName,
+      },
+    });
+    console.log('данные формы: ', event);
   }
 }
