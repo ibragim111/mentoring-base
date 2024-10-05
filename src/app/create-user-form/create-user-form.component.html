@@ -1,6 +1,6 @@
 <div style="margin-bottom: 30px">
   <form
-    style="display: flex; flex-direction: column; width: 1320px; margin: 0 auto"
+    class="form-user-form"
     action=""
     [formGroup]="form"
     (ngSubmit)="SubmitForm()"
@@ -61,8 +61,6 @@
         НАЗВЕНИЕ ВВЕДЕНО НЕПРАВИЛЬНО!
       </div>
     </div>
-    <button style="width: 150px; margin-top: 20px" [disabled]="form.invalid">
-      CREATE USER
-    </button>
+    <button class="form-button" [disabled]="form.invalid">CREATE USER</button>
   </form>
 </div>

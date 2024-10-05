@@ -1,0 +1,54 @@
+<div style="margin-bottom: 30px">
+  <form
+    class="form-todo-form"
+    action=""
+    [formGroup]="formTodo"
+    (ngSubmit)="SubmitForm()"
+  >
+    <p>Текст Задачи</p>
+    <input class="form-input" type="text" formControlName="title" />
+    <div
+      *ngIf="
+        formTodo.controls['title'].invalid &&
+        (formTodo.controls['title'].dirty || formTodo.controls['title'].touched)
+      "
+      class="alert"
+    >
+      <div *ngIf="formTodo.controls['title'].errors">Некорректная задача!</div>
+    </div>
+
+    <p>Автор Задачи</p>
+    <input class="form-input" type="text" formControlName="userId" />
+    <div
+      *ngIf="
+        formTodo.controls['userId'].invalid &&
+        (formTodo.controls['userId'].dirty ||
+          formTodo.controls['userId'].touched)
+      "
+      class="alert"
+    >
+      <div *ngIf="formTodo.controls['userId'].errors">
+        Некорректное значение!
+      </div>
+    </div>
+
+    <p>Задача Завершена?</p>
+    <input class="form-input" type="text" formControlName="completed" />
+    <div
+      *ngIf="
+        formTodo.controls['completed'].invalid &&
+        (formTodo.controls['completed'].dirty ||
+          formTodo.controls['completed'].touched)
+      "
+      class="alert"
+    >
+      <div *ngIf="formTodo.controls['completed'].errors">
+        Некорректное значение!
+      </div>
+    </div>
+
+    <button class="form-button" [disabled]="formTodo.invalid">
+      CREATE TODO
+    </button>
+  </form>
+</div>

@@ -6,6 +6,8 @@ export class TodosApiService {
   readonly apiService = inject(HttpClient);
 
   getTodos() {
-    return this.apiService.get('https://jsonplaceholder.typicode.com/todos');
+    return this.apiService.get(
+      'https://jsonplaceholder.typicode.com/todos?_start=0&_limit=15'
+    );
   }
 }
