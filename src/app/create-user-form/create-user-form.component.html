@@ -5,9 +5,18 @@
     [formGroup]="form"
     (ngSubmit)="SubmitForm()"
   >
-    <p>NAME</p>
+    <mat-form-field class="example-full-width">
+      <mat-label>Имя</mat-label>
 
-    <input class="form-input" type="text" formControlName="name" />
+      <input
+        matInput
+        placeholder="Напишите имя"
+        value=""
+        class="form-input"
+        type="text"
+        formControlName="name"
+      />
+    </mat-form-field>
     <div
       *ngIf="
         form.controls['name'].invalid &&
@@ -18,9 +27,18 @@
       <div *ngIf="form.controls['name'].errors">ИМЯ ВВЕДЕНО НЕПРАВИЛЬНО!</div>
     </div>
 
-    <p>EMAIL</p>
+    <mat-form-field class="example-full-width">
+      <mat-label>электронная почта</mat-label>
 
-    <input class="form-input" type="text" formControlName="email" />
+      <input
+        matInput
+        placeholder="Введите вашу почту"
+        value=""
+        class="form-input"
+        type="text"
+        formControlName="email"
+      />
+    </mat-form-field>
     <div
       *ngIf="
         form.controls['email'].invalid &&
@@ -31,9 +49,18 @@
       <div *ngIf="form.controls['email'].errors">email ВВЕДЁН НЕПРАВИЛЬНО!</div>
     </div>
 
-    <p>WEBSITE</p>
+    <mat-form-field class="example-full-width">
+      <mat-label>Название сайта</mat-label>
 
-    <input class="form-input" type="text" formControlName="website" />
+      <input
+        matInput
+        placeholder="Введите название сайта"
+        value=""
+        class="form-input"
+        type="text"
+        formControlName="website"
+      />
+    </mat-form-field>
     <div
       *ngIf="
         form.controls['website'].invalid &&
@@ -46,9 +73,18 @@
       </div>
     </div>
 
-    <p>COMPANY NAME</p>
+    <mat-form-field class="example-full-width">
+      <mat-label>Название компании</mat-label>
 
-    <input class="form-input" type="text" formControlName="companyName" />
+      <input
+        matInput
+        placeholder="Введите название компании"
+        value=""
+        class="form-input"
+        type="text"
+        formControlName="companyName"
+      />
+    </mat-form-field>
     <div
       *ngIf="
         form.controls['companyName'].invalid &&
@@ -61,6 +97,8 @@
         НАЗВЕНИЕ ВВЕДЕНО НЕПРАВИЛЬНО!
       </div>
     </div>
-    <button class="form-button" [disabled]="form.invalid">CREATE USER</button>
+    <button mat-button class="form-button" [disabled]="form.invalid">
+      CREATE USER
+    </button>
   </form>
 </div>

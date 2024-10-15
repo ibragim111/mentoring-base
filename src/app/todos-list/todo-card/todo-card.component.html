@@ -7,7 +7,11 @@
 
   <span>ЗАДАЧА ЗАВЕРШЕНА</span>
   <span>{{ todo.completed ? "да" : "нет" }}</span>
-  <button class="button-delete-todos" (click)="onDeleteTodo()">
+  <button class="button-delete-todo" (click)="onDeleteTodo()">
     Удалить задачу
+  </button>
+
+  <button (click)="openDialog()" class="button-delete-todo">
+    Редактировать пользователя
   </button>
 </div>

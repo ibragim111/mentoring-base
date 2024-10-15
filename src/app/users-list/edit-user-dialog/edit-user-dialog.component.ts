@@ -11,18 +11,30 @@ import {
   MatDialogClose,
   MatDialogRef,
 } from '@angular/material/dialog';
-import { User } from '../users-list.component';
+
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { User } from '../../interfaces/user.interface';
 
 @Component({
   selector: 'app-edit-user-dialog',
   templateUrl: 'edit-user-dialog.component.html',
   styleUrl: 'edit-user-dialog.component.scss',
-  imports: [ReactiveFormsModule, NgIf, MatDialogClose],
+  imports: [
+    ReactiveFormsModule,
+    NgIf,
+    MatDialogClose,
+    MatButtonModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+  ],
   standalone: true,
 })
 export class EditUserDialogComponent {
   readonly data = inject<{ user: User }>(MAT_DIALOG_DATA);
-  readonly dialogRef = inject(MatDialogRef<EditUserDialogComponent>);
 
   public form = new FormGroup({
     name: new FormControl(this.data.user.name, [

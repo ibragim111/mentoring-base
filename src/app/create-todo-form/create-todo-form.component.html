@@ -5,8 +5,17 @@
     [formGroup]="formTodo"
     (ngSubmit)="SubmitForm()"
   >
-    <p>Текст Задачи</p>
-    <input class="form-input" type="text" formControlName="title" />
+    <mat-form-field class="example-full-width">
+      <mat-label>Текст задачи</mat-label>
+      <input
+        matInput
+        placeholder="напишите текст задачи"
+        value=""
+        class="form-input"
+        type="text"
+        formControlName="title"
+      />
+    </mat-form-field>
     <div
       *ngIf="
         formTodo.controls['title'].invalid &&
@@ -17,8 +26,18 @@
       <div *ngIf="formTodo.controls['title'].errors">Некорректная задача!</div>
     </div>
 
-    <p>Автор Задачи</p>
-    <input class="form-input" type="text" formControlName="userId" />
+    <mat-form-field class="example-full-width">
+      <mat-label>Автор задачи</mat-label>
+
+      <input
+        matInput
+        placeholder="Имя автора"
+        value=""
+        class="form-input"
+        type="text"
+        formControlName="userId"
+      />
+    </mat-form-field>
     <div
       *ngIf="
         formTodo.controls['userId'].invalid &&
@@ -32,8 +51,18 @@
       </div>
     </div>
 
-    <p>Задача Завершена?</p>
-    <input class="form-input" type="text" formControlName="completed" />
+    <mat-form-field class="example-full-width">
+      <mat-label>Задача завершена ?</mat-label>
+
+      <input
+        matInput
+        placeholder="да либо нет"
+        value=""
+        class="form-input"
+        type="text"
+        formControlName="completed"
+      />
+    </mat-form-field>
     <div
       *ngIf="
         formTodo.controls['completed'].invalid &&
@@ -47,7 +76,7 @@
       </div>
     </div>
 
-    <button class="form-button" [disabled]="formTodo.invalid">
+    <button mat-button class="form-button" [disabled]="formTodo.invalid">
       CREATE TODO
     </button>
   </form>

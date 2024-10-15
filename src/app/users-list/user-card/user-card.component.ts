@@ -1,7 +1,7 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
-import { User } from '../users-list.component';
 import { MatDialog } from '@angular/material/dialog';
 import { EditUserDialogComponent } from '../edit-user-dialog/edit-user-dialog.component';
+import { User } from '../../interfaces/user.interface';
 
 @Component({
   selector: 'app-user-card',

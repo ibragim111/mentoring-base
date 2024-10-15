@@ -1,7 +1,16 @@
 <form class="form-user-form" action="" [formGroup]="form">
-  <p>NAME</p>
+  <mat-form-field class="example-full-width">
+    <mat-label>Имя</mat-label>
 
-  <input class="form-input" type="text" formControlName="name" />
+    <input
+      matInput
+      placeholder="Напишите имя"
+      value=""
+      class="form-input"
+      type="text"
+      formControlName="name"
+    />
+  </mat-form-field>
   <div
     *ngIf="
       form.controls['name'].invalid &&
@@ -11,10 +20,18 @@
   >
     <div *ngIf="form.controls['name'].errors">ИМЯ ВВЕДЕНО НЕПРАВИЛЬНО!</div>
   </div>
+  <mat-form-field class="example-full-width">
+    <mat-label>электронная почта</mat-label>
 
-  <p>EMAIL</p>
-
-  <input class="form-input" type="text" formControlName="email" />
+    <input
+      matInput
+      placeholder="Введите вашу почту"
+      value=""
+      class="form-input"
+      type="text"
+      formControlName="email"
+    />
+  </mat-form-field>
   <div
     *ngIf="
       form.controls['email'].invalid &&
@@ -24,10 +41,18 @@
   >
     <div *ngIf="form.controls['email'].errors">email ВВЕДЁН НЕПРАВИЛЬНО!</div>
   </div>
+  <mat-form-field class="example-full-width">
+    <mat-label>Название сайта</mat-label>
 
-  <p>WEBSITE</p>
-
-  <input class="form-input" type="text" formControlName="website" />
+    <input
+      matInput
+      placeholder="Введите название сайта"
+      value=""
+      class="form-input"
+      type="text"
+      formControlName="website"
+    />
+  </mat-form-field>
   <div
     *ngIf="
       form.controls['website'].invalid &&
@@ -37,10 +62,18 @@
   >
     <div *ngIf="form.controls['website'].errors">САЙТ ВВЕДЁН НЕПРАВИЛЬНО!</div>
   </div>
+  <mat-form-field class="example-full-width">
+    <mat-label>Название компании</mat-label>
 
-  <p>COMPANY NAME</p>
-
-  <input class="form-input" type="text" formControlName="companyName" />
+    <input
+      matInput
+      placeholder="Введите название компании"
+      value=""
+      class="form-input"
+      type="text"
+      formControlName="companyName"
+    />
+  </mat-form-field>
   <div
     *ngIf="
       form.controls['companyName'].invalid &&
@@ -54,6 +87,7 @@
     </div>
   </div>
   <button
+    mat-button
     class="form-button"
     [disabled]="form.invalid"
     [mat-dialog-close]="userWithUpdatedFields"

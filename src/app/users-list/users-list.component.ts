@@ -4,38 +4,7 @@ import { UserApiService } from '../users-api.service';
 import { UserCardComponent } from './user-card/user-card.component';
 import { UsersService } from '../users.service';
 import { CreateUserFormComponent } from '../create-user-form/create-user-form.component';
-
-export interface User {
-  id: number;
-  name: string;
-  username?: string;
-  email: string;
-  address?: {
-    street: string;
-    suite: string;
-    city: string;
-    zipcode: number;
-    geo: {
-      lat: number;
-      lng: number;
-    };
-  };
-  phone?: number;
-  website: string;
-  company: {
-    name: string;
-    catchPhrase?: string;
-    bs?: string;
-  };
-}
-
-export interface createUserI {
-  id: number;
-  name: string;
-  email: string;
-  website: string;
-  companyName: string;
-}
+import { createUserI } from '../interfaces/user.interface';
 
 @Component({
   selector: 'app-users-list',
