@@ -1,11 +1,10 @@
-<form class="form-user-form" action="" [formGroup]="form">
+<form class="form-user-form" [formGroup]="form">
   <mat-form-field class="example-full-width">
     <mat-label>Имя</mat-label>
 
     <input
       matInput
       placeholder="Напишите имя"
-      value=""
       class="form-input"
       type="text"
       formControlName="name"
@@ -26,7 +25,6 @@
     <input
       matInput
       placeholder="Введите вашу почту"
-      value=""
       class="form-input"
       type="text"
       formControlName="email"
@@ -47,7 +45,6 @@
     <input
       matInput
       placeholder="Введите название сайта"
-      value=""
       class="form-input"
       type="text"
       formControlName="website"
@@ -68,7 +65,6 @@
     <input
       matInput
       placeholder="Введите название компании"
-      value=""
       class="form-input"
       type="text"
       formControlName="companyName"

@@ -1,10 +1,9 @@
-<form class="form-todo-form" action="" [formGroup]="formTodo">
+<form class="form-todo-form" [formGroup]="formTodo">
   <mat-form-field>
     <mat-label>Текст Задачи</mat-label>
     <input
       matInput
       placeholder="напишите текст задачи"
-      value=""
       class="form-input"
       type="text"
       formControlName="title"
@@ -25,7 +24,6 @@
     <input
       matInput
       placeholder="Имя автора"
-      value=""
       class="form-input"
       type="text"
       formControlName="userId"
@@ -47,7 +45,6 @@
     <input
       matInput
       placeholder="да либо нет"
-      value=""
       class="form-input"
       type="text"
       formControlName="completed"
