@@ -1,9 +1,12 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Todo } from './interfaces/todo.interface';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({ providedIn: 'root' })
 export class TodosService {
+  private snackbar = inject(MatSnackBar);
+
   private todosSubject$ = new BehaviorSubject<Todo[]>([]);
   public todosList$ = this.todosSubject$.asObservable();
 
@@ -28,10 +31,9 @@ export class TodosService {
       (currentElement) => currentElement.title === todo.title
     );
     if (existingTodo !== undefined) {
-      alert('ТАКАЯ ЗАДАЧА УЖЕ ЕСТЬ!');
     } else {
       this.todosSubject$.next([...this.todosSubject$.value, todo]);
-      alert('НОВАЯ ЗАДАЧА ДОБАВЛЕНА!');
+      this.snackbar.open('Здача добавлена', 'Закрыть', { duration: 3000 });
     }
   }
 
@@ -39,6 +41,7 @@ export class TodosService {
     this.todosSubject$.next(
       this.todosSubject$.value.filter((item) => {
         if (id === item.id) {
+          this.snackbar.open('Задача удалена', 'Ок', { duration: 5000 });
           return false;
         } else {
           return true;

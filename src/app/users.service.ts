@@ -1,9 +1,11 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { User } from './interfaces/user.interface';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({ providedIn: 'root' })
 export class UsersService {
+  private snackbar = inject(MatSnackBar);
   private usersSubject$ = new BehaviorSubject<User[]>([]);
   public usersList$ = this.usersSubject$.asObservable();
 
@@ -29,10 +31,14 @@ export class UsersService {
     );
 
     if (existingUser !== undefined) {
-      alert('ТАКОЙ ЕМЕЙЛ УЖЕ ЗАРЕГАН БРО!!!!!!!!');
+      this.snackbar.open('Такой Email уже зарегистрирован', 'Ок', {
+        duration: 5000,
+      });
     } else {
       this.usersSubject$.next([...this.usersSubject$.value, user]);
-      alert('НОВЫй ПОЛЬЗОВАТЕЛЬ ДОБАВЛЕН БРО!!!!!!!');
+      this.snackbar.open('Пользователь успешно создан', 'Ок', {
+        duration: 5000,
+      });
     }
   }
 
@@ -40,6 +46,7 @@ export class UsersService {
     this.usersSubject$.next(
       this.usersSubject$.value.filter((item) => {
         if (id === item.id) {
+          this.snackbar.open('пользователь удалён', 'Ок', { duration: 5000 });
           return false;
         } else {
           return true;
