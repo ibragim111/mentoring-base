@@ -2,8 +2,7 @@ import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { Todo } from '../../interfaces/todo.interface';
 import { MatDialog } from '@angular/material/dialog';
 import { EditTodoDialogComponent } from '../edit-todo-dialog/edit-todo-dialog.component';
-import { MatSnackBar } from '@angular/material/snack-bar';
-
+import { NotificationService } from '../../notification.service';
 @Component({
   selector: 'app-todo-card',
   templateUrl: './todo-card.component.html',
@@ -21,8 +20,8 @@ export class TodoCardComponent {
   @Output()
   editTodo = new EventEmitter();
 
-  readonly snackbar = inject(MatSnackBar);
   readonly dialog = inject(MatDialog);
+  readonly notificationService = inject(NotificationService);
 
   openDialog(): void {
     const dialogRef = this.dialog.open(EditTodoDialogComponent, {
@@ -33,12 +32,13 @@ export class TodoCardComponent {
       console.log('МОДАЛКА ЗАКРЫЛАСЬ, ЗНАЧЕНИЕ ФОРМЫ: ', editTodoResult);
       if (editTodoResult) {
         this.editTodo.emit(editTodoResult);
-        this.snackbar.open('Задача отредактирована', 'Ок', { duration: 5000 });
+        this.notificationService.editing('Задача отредактирована');
       }
     });
   }
 
   onDeleteTodo(): void {
     this.deleteTodo.emit(this.todo.id);
+    this.notificationService.deletion('Задача удалена');
   }
 }

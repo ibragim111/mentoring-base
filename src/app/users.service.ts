@@ -31,9 +31,6 @@ export class UsersService {
     );
 
     if (existingUser !== undefined) {
-      this.snackbar.open('Такой Email уже зарегистрирован', 'Ок', {
-        duration: 5000,
-      });
     } else {
       this.usersSubject$.next([...this.usersSubject$.value, user]);
     }

@@ -1,5 +1,5 @@
 import { NgIf } from '@angular/common';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -10,6 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { NotificationService } from '../notification.service';
 
 @Component({
   selector: 'app-create-user-form',
@@ -29,6 +30,8 @@ export class CreateUserFormComponent {
   @Output()
   createUser = new EventEmitter();
 
+  readonly notificationService = inject(NotificationService);
+
   public form = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(2)]),
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -44,5 +47,6 @@ export class CreateUserFormComponent {
   public SubmitForm(): void {
     this.createUser.emit(this.form.value);
     this.form.reset();
+    this.notificationService.addition('Пользователь добавлен!');
   }
 }

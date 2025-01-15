@@ -2,7 +2,7 @@ import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { EditUserDialogComponent } from '../edit-user-dialog/edit-user-dialog.component';
 import { User } from '../../interfaces/user.interface';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { NotificationService } from '../../notification.service';
 
 @Component({
   selector: 'app-user-card',
@@ -20,8 +20,8 @@ export class UserCardComponent {
   @Output()
   editUser = new EventEmitter();
 
-  readonly snackbar = inject(MatSnackBar);
   readonly dialog = inject(MatDialog);
+  readonly notificatinService = inject(NotificationService);
 
   openDialog(): void {
     const dialogRef = this.dialog.open(EditUserDialogComponent, {
@@ -32,14 +32,13 @@ export class UserCardComponent {
       console.log('МОДАЛКА ЗАКРЫЛАСЬ, ЗНАЧЕНИЕ ФОРМЫ: ', editResult);
       if (editResult) {
         this.editUser.emit(editResult);
-        this.snackbar.open(' Пользователь отредактирован', 'OK', {
-          duration: 3000,
-        });
+        this.notificatinService.editing('Пользователь отредактрирован!');
       }
     });
   }
 
   onDeleteUser(userid: number) {
     this.deleteUser.emit(userid);
+    this.notificatinService.deletion('Пользователь удалён!');
   }
 }
