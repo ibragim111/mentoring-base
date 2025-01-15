@@ -1,12 +1,9 @@
 import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Todo } from './interfaces/todo.interface';
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({ providedIn: 'root' })
 export class TodosService {
-  private snackbar = inject(MatSnackBar);
-
   private todosSubject$ = new BehaviorSubject<Todo[]>([]);
   public todosList$ = this.todosSubject$.asObservable();
 

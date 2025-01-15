@@ -1,11 +1,9 @@
 import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { User } from './interfaces/user.interface';
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({ providedIn: 'root' })
 export class UsersService {
-  private snackbar = inject(MatSnackBar);
   private usersSubject$ = new BehaviorSubject<User[]>([]);
   public usersList$ = this.usersSubject$.asObservable();
 

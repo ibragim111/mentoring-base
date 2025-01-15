@@ -4,7 +4,7 @@ import { TodosApiService } from '../todos-api.service';
 import { AsyncPipe, NgFor } from '@angular/common';
 import { TodosService } from '../todos.service';
 import { CreateTodoFormComponent } from '../create-todo-form/create-todo-form.component';
-import { createTodoI } from '../interfaces/todo.interface';
+import { Todo, createTodoI } from '../interfaces/todo.interface';
 
 @Component({
   selector: 'app-todos-list',
@@ -20,17 +20,16 @@ export class TodosListComponent {
   public readonly todosList$ = this.todosService.todosList$;
 
   constructor() {
-    this.todosApiService.getTodos().subscribe((response: any) => {
+    this.todosApiService.getTodos().subscribe((response: Todo[]) => {
       this.todosService.setTodos(response);
     });
-    this.todosService.todosList$.subscribe((users) => console.log(users));
   }
 
   deleteTodo(id: number): void {
     this.todosService.deleteTodo(id);
   }
 
-  editTodo(todo: any) {
+  editTodo(todo: Todo) {
     this.todosService.editTodo(todo);
   }
 
