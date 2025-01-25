@@ -32,13 +32,13 @@ export class TodoCardComponent {
       console.log('МОДАЛКА ЗАКРЫЛАСЬ, ЗНАЧЕНИЕ ФОРМЫ: ', editTodoResult);
       if (editTodoResult) {
         this.editTodo.emit(editTodoResult);
-        this.notificationService.editing('Задача отредактирована');
+        this.notificationService.showNotification('Задача отредактирована');
       }
     });
   }
 
   onDeleteTodo(): void {
     this.deleteTodo.emit(this.todo.id);
-    this.notificationService.deletion('Задача удалена');
+    this.notificationService.showNotification('Задача удалена');
   }
 }

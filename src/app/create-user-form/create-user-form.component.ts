@@ -47,6 +47,6 @@ export class CreateUserFormComponent {
   public SubmitForm(): void {
     this.createUser.emit(this.form.value);
     this.form.reset();
-    this.notificationService.addition('Пользователь добавлен!');
+    this.notificationService.showNotification('Пользователь добавлен!');
   }
 }

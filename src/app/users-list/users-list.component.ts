@@ -4,7 +4,7 @@ import { UserApiService } from '../users-api.service';
 import { UserCardComponent } from './user-card/user-card.component';
 import { UsersService } from '../users.service';
 import { CreateUserFormComponent } from '../create-user-form/create-user-form.component';
-import { createUserI } from '../interfaces/user.interface';
+import { createUserI, User } from '../interfaces/user.interface';
 
 @Component({
   selector: 'app-users-list',
@@ -16,28 +16,23 @@ import { createUserI } from '../interfaces/user.interface';
 })
 export class UsersListComponent {
   readonly usersApiService = inject(UserApiService);
-  readonly usersService = inject(UsersService);
+  readonly usersService: UsersService = inject(UsersService);
   public readonly usersList$ = this.usersService.usersList$;
 
   constructor() {
-    this.usersApiService.getUsers().subscribe((response: any) => {
+    this.usersApiService.getUsers().subscribe((response: User[]) => {
       this.usersService.setUsers(response);
     });
 
     this.usersService.usersList$.subscribe((users) => console.log(users));
   }
 
-  deleteUser(id: number) {
+  deleteUser(id: number): void {
     this.usersService.deleteUser(id);
   }
 
-  editUser(user: any) {
-    this.usersService.editUser({
-      ...user,
-      company: {
-        name: user.companyName,
-      },
-    });
+  editUser(user: createUserI) {
+    this.usersService.editUser(user);
   }
 
   public createUser(formData: createUserI) {
@@ -47,7 +42,7 @@ export class UsersListComponent {
       email: formData.email,
       website: formData.website,
       company: {
-        name: formData.companyName,
+        name: formData.company.name,
       },
     });
   }

@@ -65,6 +65,6 @@ export class CreateTodoFormComponent {
       completed: this.getCompletedValue(),
     });
     this.formTodo.reset();
-    this.notificationService.addition('Задача добавлена');
+    this.notificationService.showNotification('Задача добавлена');
   }
 }

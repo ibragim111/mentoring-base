@@ -32,13 +32,15 @@ export class UserCardComponent {
       console.log('МОДАЛКА ЗАКРЫЛАСЬ, ЗНАЧЕНИЕ ФОРМЫ: ', editResult);
       if (editResult) {
         this.editUser.emit(editResult);
-        this.notificatinService.editing('Пользователь отредактрирован!');
+        this.notificatinService.showNotification(
+          'Пользователь отредактрирован!'
+        );
       }
     });
   }
 
   onDeleteUser(userid: number) {
     this.deleteUser.emit(userid);
-    this.notificatinService.deletion('Пользователь удалён!');
+    this.notificatinService.showNotification('Пользователь удалён!');
   }
 }

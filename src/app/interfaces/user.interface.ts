@@ -7,13 +7,13 @@ export interface User {
     street: string;
     suite: string;
     city: string;
-    zipcode: number;
+    zipcode: string;
     geo: {
-      lat: number;
-      lng: number;
+      lat: string;
+      lng: string;
     };
   };
-  phone?: number;
+  phone?: string;
   website: string;
   company: {
     name: string;
@@ -27,5 +27,7 @@ export interface createUserI {
   name: string;
   email: string;
   website: string;
-  companyName: string;
+  company: {
+    name: string;
+  };
 }

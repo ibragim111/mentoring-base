@@ -5,19 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class NotificationService {
   constructor(private snackBar: MatSnackBar) {}
 
-  private showNotification(notificationText: string) {
+  showNotification(notificationText: string) {
     this.snackBar.open(notificationText, 'Ок', { duration: 5000 });
-  }
-
-  addition(notificationText: string) {
-    this.showNotification(notificationText);
-  }
-
-  deletion(notificationText: string) {
-    this.showNotification(notificationText);
-  }
-
-  editing(notificationText: string) {
-    this.showNotification(notificationText);
   }
 }
