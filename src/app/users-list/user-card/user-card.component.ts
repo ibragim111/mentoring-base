@@ -3,12 +3,14 @@ import { MatDialog } from '@angular/material/dialog';
 import { EditUserDialogComponent } from '../edit-user-dialog/edit-user-dialog.component';
 import { User } from '../../interfaces/user.interface';
 import { NotificationService } from '../../notification.service';
+import { CustomUpperCasePipe } from '../../pipes/upper-case.pipes';
 
 @Component({
   selector: 'app-user-card',
   templateUrl: './user-card.component.html',
   styleUrl: './user-card.component.scss',
   standalone: true,
+  imports: [CustomUpperCasePipe],
 })
 export class UserCardComponent {
   @Input({ required: true })
