@@ -67,18 +67,17 @@
       placeholder="Введите название компании"
       class="form-input"
       type="text"
-      formControlName="companyName"
+      formControlName="company"
     />
   </mat-form-field>
   <div
     *ngIf="
-      form.controls['companyName'].invalid &&
-      (form.controls['companyName'].dirty ||
-        form.controls['companyName'].touched)
+      form.controls['company'].invalid &&
+      (form.controls['company'].dirty || form.controls['company'].touched)
     "
     class="alert"
   >
-    <div *ngIf="form.controls['companyName'].errors">
+    <div *ngIf="form.controls['company'].errors">
       НАЗВЕНИЕ ВВЕДЕНО НЕПРАВИЛЬНО!
     </div>
   </div>

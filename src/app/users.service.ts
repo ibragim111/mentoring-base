@@ -1,4 +1,4 @@
-import { inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { User } from './interfaces/user.interface';
 
@@ -27,7 +27,7 @@ export class UsersService {
     const existingUser = this.usersSubject$.value.find(
       (currentElement) => currentElement.email === user.email
     );
-
+    console.log(user);
     if (existingUser !== undefined) {
     } else {
       this.usersSubject$.next([...this.usersSubject$.value, user]);

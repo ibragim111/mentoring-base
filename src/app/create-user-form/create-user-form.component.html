@@ -72,7 +72,7 @@
       </div>
     </div>
 
-    <mat-form-field class="example-full-width">
+    <mat-form-field formGroupName="company" class="example-full-width">
       <mat-label>Название компании</mat-label>
 
       <input
@@ -80,18 +80,17 @@
         placeholder="Введите название компании"
         class="form-input"
         type="text"
-        formControlName="companyName"
+        formControlName="name"
       />
     </mat-form-field>
     <div
       *ngIf="
-        form.controls['companyName'].invalid &&
-        (form.controls['companyName'].dirty ||
-          form.controls['companyName'].touched)
+        form.controls['company'].invalid &&
+        (form.controls['company'].dirty || form.controls['company'].touched)
       "
       class="alert"
     >
-      <div *ngIf="form.controls['companyName'].errors">
+      <div *ngIf="form.controls['company'].errors">
         НАЗВЕНИЕ ВВЕДЕНО НЕПРАВИЛЬНО!
       </div>
     </div>
