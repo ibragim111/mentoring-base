@@ -4,13 +4,15 @@ import { EditUserDialogComponent } from '../edit-user-dialog/edit-user-dialog.co
 import { User } from '../../interfaces/user.interface';
 import { NotificationService } from '../../notification.service';
 import { CustomUpperCasePipe } from '../../pipes/upper-case.pipes';
+import { ShadowDirective } from '../../directives/shadow.directive';
+import { MatButton } from '@angular/material/button';
 
 @Component({
   selector: 'app-user-card',
   templateUrl: './user-card.component.html',
   styleUrl: './user-card.component.scss',
   standalone: true,
-  imports: [CustomUpperCasePipe],
+  imports: [CustomUpperCasePipe, ShadowDirective, MatButton],
 })
 export class UserCardComponent {
   @Input({ required: true })

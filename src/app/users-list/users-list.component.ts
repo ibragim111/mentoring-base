@@ -5,13 +5,20 @@ import { UserCardComponent } from './user-card/user-card.component';
 import { UsersService } from '../users.service';
 import { CreateUserFormComponent } from '../create-user-form/create-user-form.component';
 import { createUserI, User } from '../interfaces/user.interface';
+import { ShadowDirective } from '../directives/shadow.directive';
 
 @Component({
   selector: 'app-users-list',
   templateUrl: './users-list.component.html',
   styleUrl: './users-list.component.scss',
   standalone: true,
-  imports: [NgFor, UserCardComponent, AsyncPipe, CreateUserFormComponent],
+  imports: [
+    NgFor,
+    UserCardComponent,
+    AsyncPipe,
+    CreateUserFormComponent,
+    ShadowDirective,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UsersListComponent {

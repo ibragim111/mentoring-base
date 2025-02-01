@@ -3,11 +3,19 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CustomDatePipe } from '../../pipes/custom-date.pipe';
 import { CustomNumberPfonePipe } from '../../pipes/phone-format.pipe';
+import { YellowDirective } from '../../directives/yellow.directive';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [NgFor, NgIf, RouterLink, CustomDatePipe, CustomNumberPfonePipe],
+  imports: [
+    NgFor,
+    NgIf,
+    RouterLink,
+    CustomDatePipe,
+    CustomNumberPfonePipe,
+    YellowDirective,
+  ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
