@@ -59,25 +59,26 @@
   >
     <div *ngIf="form.controls['website'].errors">САЙТ ВВЕДЁН НЕПРАВИЛЬНО!</div>
   </div>
-  <mat-form-field class="example-full-width">
-    <mat-label>Название компании</mat-label>
-
-    <input
-      matInput
-      placeholder="Введите название компании"
-      class="form-input"
-      type="text"
-      formControlName="company"
-    />
-  </mat-form-field>
+  <div formGroupName="company">
+    <mat-form-field class="example-full-width">
+      <mat-label>Название компании</mat-label>
+      <input
+        matInput
+        placeholder="Введите название компании"
+        class="form-input"
+        type="text"
+        formControlName="name"
+      />
+    </mat-form-field>
+  </div>
   <div
     *ngIf="
-      form.controls['company'].invalid &&
-      (form.controls['company'].dirty || form.controls['company'].touched)
+      form.controls['name'].invalid &&
+      (form.controls['name'].dirty || form.controls['name'].touched)
     "
     class="alert"
   >
-    <div *ngIf="form.controls['company'].errors">
+    <div *ngIf="form.controls['name'].errors">
       НАЗВЕНИЕ ВВЕДЕНО НЕПРАВИЛЬНО!
     </div>
   </div>

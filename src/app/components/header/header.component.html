@@ -29,8 +29,9 @@
         <button class="button_change_menu_text" (click)="changeMenuText()">
           изменить текст
         </button>
-        <a class="button_change_menu_text" routerLink="/users">Админка</a>
+        <a class="button_change_menu_text" routerLink="/users">Юзеры</a>
         <a class="button_change_menu_text" routerLink="/todos">Список Задач</a>
+        <a class="button_change_menu_text" routerLink="/admin">Админка</a>
       </div>
 
       <div class="header_right">
@@ -52,6 +53,22 @@
           />
           <span class="header_korzina_text">Пусто</span>
         </button>
+        <div>
+          <button
+            class="button"
+            *ngIf="(userService.user$ | async) === null"
+            (click)="openDialog()"
+          >
+            войти
+          </button>
+          <button
+            class="button"
+            *ngIf="(userService.user$ | async) !== null"
+            (click)="logout()"
+          >
+            выйти
+          </button>
+        </div>
       </div>
     </div>
   </div>

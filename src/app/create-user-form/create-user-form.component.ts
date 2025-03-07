@@ -41,7 +41,11 @@ export class CreateUserFormComponent {
     ]),
 
     company: new FormGroup({
-      name: new FormControl(''),
+      name: new FormControl('', [
+        Validators.required,
+        Validators.minLength(2),
+        Validators.pattern(/^[a-zA-Zа-яА-Я\s]*$/),
+      ]),
     }),
   });
   public SubmitForm(): void {
