@@ -2,10 +2,13 @@ import { AsyncPipe, NgFor } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { UserApiService } from '../users-api.service';
 import { UserCardComponent } from './user-card/user-card.component';
-import { UsersService } from '../users.service';
+
 import { CreateUserFormComponent } from '../create-user-form/create-user-form.component';
 import { createUserI, User } from '../interfaces/user.interface';
 import { ShadowDirective } from '../directives/shadow.directive';
+import { Store } from '@ngrx/store';
+import { UsersActions } from './store/user.actions';
+import { selectUsers } from './store/users.selectors';
 
 @Component({
   selector: 'app-users-list',
@@ -23,34 +26,35 @@ import { ShadowDirective } from '../directives/shadow.directive';
 })
 export class UsersListComponent {
   readonly usersApiService = inject(UserApiService);
-  readonly usersService: UsersService = inject(UsersService);
-  public readonly usersList$ = this.usersService.usersList$;
+
+  private readonly store = inject(Store);
+  public readonly users$ = this.store.select(selectUsers);
 
   constructor() {
-    this.usersApiService.getUsers().subscribe((response: User[]) => {
-      this.usersService.setUsers(response);
-    });
-
-    this.usersService.usersList$.subscribe((users) => console.log(users));
+    this.store.dispatch(UsersActions.loadUsers());
   }
 
   deleteUser(id: number): void {
-    this.usersService.deleteUser(id);
+    this.store.dispatch(UsersActions.delete({ id }));
   }
 
   editUser(user: createUserI) {
-    this.usersService.editUser(user);
+    this.store.dispatch(UsersActions.edit({ user }));
   }
 
   public createUser(formData: createUserI) {
-    this.usersService.createUser({
-      id: new Date().getTime(),
-      name: formData.name,
-      email: formData.email,
-      website: formData.website,
-      company: {
-        name: formData.company.name,
-      },
-    });
+    this.store.dispatch(
+      UsersActions.create({
+        user: {
+          id: new Date().getTime(),
+          name: formData.name,
+          email: formData.email,
+          website: formData.website,
+          company: {
+            name: formData.company.name,
+          },
+        },
+      })
+    );
   }
 }
